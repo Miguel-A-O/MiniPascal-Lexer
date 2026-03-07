@@ -1,3 +1,5 @@
+{ EJEMPLO DEL LIBRO PAG . 77}
+
 program DemoPrimero; { cabecera }
 { Este es nuestro primer programa en Turbo Pascal }
 uses Crt, DOS;  { declaraciones }
