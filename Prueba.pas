@@ -7,6 +7,7 @@ CONST
     Pi = 3.1416;
     IVA = 12;
     HEX = $FF;
+    COMPLEX = 4.1E-1.3; 
 type
     Palabra = string[20];
     Notas = 1..10;

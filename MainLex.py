@@ -27,11 +27,7 @@ t_RBRACKET = r'\]'
 
 #Tokens para números, strings, comentarios y identificadores
 def t_NUMBER(t):
-	r'\$[0-9a-fA-F]+|\d+'
-	if t.value.startswith('$'):
-		t.value = int(t.value[1:], 16)
-	else:
-		t.value = int(t.value)
+	r'\$[0-9a-fA-F]+|\d+(\.\d+)?((E|e)(-)?\d+(\.\d+)?)?'
 	return t
 def t_STRING(t):
 	r'\'([^\\\n]|(\\.))*?\''
