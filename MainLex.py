@@ -37,7 +37,7 @@ def t_SINGLE_COMMENT(t):
 	r'{.*?}'
 	pass
 
-#Esta vaina, captura todos los ids y palabras reservadas, y luego las busca en el diccionario para ver si está reservada
+#Captura todos los id y palabras reservadas, luego busca en el diccionario para comprobar su validez
 def t_ID(t):
     r'[a-zA-Z_][a-zA-Z_0-9]*'
     t.type = dict_tokens.get(t.value.lower(), 'ID') 
