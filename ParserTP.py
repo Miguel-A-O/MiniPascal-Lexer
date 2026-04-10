@@ -84,10 +84,16 @@ def p_statement_list(p):
                       | statement'''
     pass
 
+def p_if_stmt(p):
+    '''if_stmt : IF LPAREN expression RPAREN THEN statement
+               | IF LPAREN expression RPAREN THEN statement ELSE statement'''
+    pass
+
 def p_statement(p):
     '''statement : call_stmt SEMICOLON
                  | assignment_stmt SEMICOLON
                  | compound_stmt
+                 | if_stmt
                  | empty'''
     pass
 
@@ -107,16 +113,27 @@ def p_expression_list(p):
     pass
 
 def p_assignment_stmt(p):
-    'assignment_stmt : ID EQUALS expression'
+    'assignment_stmt : ID ASSIGN expression'
     pass
 
 # Expresiones en general
+
+def p_expression_formatted(p):
+    '''expression_formatted : expression COLON type_specifier'''
+    pass
+
 def p_expression(p):
     '''expression : term
                   | expression PLUS term
                   | expression MINUS term
                   | expression TIMES term
-                  | expression DIVIDE term'''
+                  | expression DIVIDE term
+                  | expression GREATER term
+                  | expression LESS term
+                  | expression GREATEREQUAL term
+                  | expression LESSEQUAL term
+                  | expression NOTEQUAL term
+                  | expression_formatted'''
     pass
 
 def p_term(p):
