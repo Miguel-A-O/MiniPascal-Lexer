@@ -131,9 +131,12 @@ def p_empty(p):
 
 def p_error(p):
     if p:
-        print(f"ERROR SINTACTICO EN LA LINEA {p.lineno} NO SE ESPERABA EL Token {p.value}")
+        error_msg = f"ERROR SINTACTICO EN LA LINEA {p.lineno}: Token inesperado '{p.value}'"
     else:
-        print("Error: Fin de archivo inesperado")
+        error_msg = "Error: Fin de archivo inesperado (EOF)"
+    
+    print(error_msg)
+    raise SyntaxError(error_msg)
 
 parser = yacc.yacc()
 
@@ -145,5 +148,8 @@ if __name__ == '__main__':
 
     with open(fin, 'r') as f:
             data = f.read()
-    parser.parse(data, tracking=True)
-    print("Todo reconocido correctamente")
+    try:
+        parser.parse(data, tracking=True)
+        print("Todo reconocido correctamente")
+    except SyntaxError:
+        print("La validación falló debido a los errores anteriores.")

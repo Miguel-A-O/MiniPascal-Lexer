@@ -17,6 +17,7 @@ var
     Apellido: Palabra;
     Pesos   : Notas;
 begin
+
     ClrScr; { borra o limpia la pantalla }
     Write ('Cual es su primer apellido? ');
     ReadLn (Apellido);
